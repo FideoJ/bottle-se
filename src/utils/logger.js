@@ -1,7 +1,7 @@
 const moment = require('moment');
-const { getIp, isInDev } = require('./utils');
 
 const logger = console;
+const isInDev = process.env.NODE_ENV === 'development';
 
 exports = module.exports = { logger, logRequest };
 

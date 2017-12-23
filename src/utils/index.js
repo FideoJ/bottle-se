@@ -1,8 +1,9 @@
 const { inspect } = require('util');
 const _ = require('lodash');
-const AE = require('./AE');
+const AE = require('./AppError');
 const isInDev = process.env.NODE_ENV === 'development';
 const isInProd = process.env.NODE_ENV === 'production';
+const { assign } = Object;
 
 exports = module.exports = {
   sendData,
@@ -13,6 +14,7 @@ exports = module.exports = {
   pick: (obj, ...props) => _.pick(obj, props),
   isInDev,
   isInProd,
+  assign,
 };
 
 /**
