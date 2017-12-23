@@ -1,0 +1,31 @@
+{
+  "name": "bottle-se",
+  "version": "0.1",
+  "description": "漂流瓶 服务端",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon --inspect=5858 ./src/index.js --exec node",
+    "start": "pm2 startOrRestart deploy/prod.json",
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:FideoJ/bottle-se.git"
+  },
+  "author": "Fideo",
+  "license": "MIT",
+  "homepage": "https://github.com/FideoJ/bottle-se",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "koa": "^2.3.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "mysql": "^2.14.1",
+    "redis": "^2.7.1",
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
