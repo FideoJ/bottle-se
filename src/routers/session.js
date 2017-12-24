@@ -7,4 +7,4 @@ const router = new Router({ prefix: '/sessions' });
 exports = module.exports = () => exportRtr(router);
 
 router.post('/', sessionCtrl.create);
-// router.delete('/self', sessionCtrl.delete);
+router.delete('/self', sessionCtrl.delete);

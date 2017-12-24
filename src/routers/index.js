@@ -52,6 +52,7 @@ function getSessionParser(app) {
 // 无需登录即可访问的 API
 const whiteList = [
   '/api/sessions',
+  '/api/users',
 ];
 
 /**
@@ -60,7 +61,7 @@ const whiteList = [
  * @param {{(): Promise<any>}} next
  */
 async function checkIsInWhiteList(ctx, next) {
-  ctx.isInWhiteList = whiteList.some(onePath => ctx.originalUrl.startsWith(onePath));
+  ctx.isInWhiteList = whiteList.some(onePath => ctx.originalUrl === onePath);
   return next();
 }
 
@@ -84,10 +85,10 @@ async function initParam(ctx, next) {
  * @param {{(): Promise<any>}} next
  */
 async function blockUnauthorized(ctx, next) {
-  const hasLoggedin = ctx.session.user;
+  const hasLoggedin = ctx.session.curUser;
   if (ctx.isInWhiteList || hasLoggedin) {
     if (hasLoggedin) {
-      ctx.paramData.curUser = ctx.paramData.user = ctx.session.user;
+      ctx.paramData.curUser = ctx.paramData.user = ctx.session.curUser;
     }
     return next();
   }
