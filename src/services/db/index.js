@@ -1,5 +1,6 @@
 const mysql = require('mysql');
-const { promisifyAll, AE } = require('../../utils');
+const { promisifyAll } = require('bluebird');
+const { AppError } = require('../../utils');
 const config = require('../../config');
 
 promisifyAll(require('mysql/lib/Connection').prototype);
@@ -21,7 +22,7 @@ async function getConn() {
     const conn = await Pool.getConnectionAsync();
     return conn;
   } catch (e) {
-    throw new AE.HardError(AE.INTERNAL_ERROR, '数据库连接出错', 500, e);
+    throw new AppError.HardError(AppError.INTERNAL_ERROR, '数据库连接出错', 500, e);
   }
 }
 
@@ -38,7 +39,7 @@ async function queryDb(sql, values, conn) {
   try {
     return await conn.queryAsync(sql, values);
   } catch (e) {
-    e.stack += `\n---------\n${e.sqlAEssage}:\n${e.sql}\n---------`;
-    throw new AE.HardError(AE.INTERNAL_ERROR, '数据库查询出错', 500, e);
+    e.stack += `\n---------\n${e.sqlmessage}:\n${e.sql}\n---------`;
+    throw new AppError.HardError(AppError.INTERNAL_ERROR, '数据库查询出错', 500, e);
   }
 }

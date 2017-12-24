@@ -1,6 +1,6 @@
 const { inspect } = require('util');
 const _ = require('lodash');
-const AE = require('./AppError');
+const AppError = require('./AppError');
 const isInDev = process.env.NODE_ENV === 'development';
 const isInProd = process.env.NODE_ENV === 'production';
 const { assign } = Object;
@@ -9,7 +9,7 @@ exports = module.exports = {
   sendData,
   handleError,
   handleException,
-  AE,
+  AppError,
   exportRtr,
   pick: (obj, ...props) => _.pick(obj, props),
   isInDev,
@@ -25,7 +25,7 @@ exports = module.exports = {
  * @param  {string}   msg
  */
 async function sendData(ctx, data, status, msg, code = 200) {
-  if (data instanceof ME.SoftError) {
+  if (data instanceof AppError.SoftError) {
     ({
       status: status = 'BAD_REQUEST',
       msg: msg = '请求非法',
@@ -38,11 +38,10 @@ async function sendData(ctx, data, status, msg, code = 200) {
     }
     data = data.info.data || {};
   }
-  const time = new Date();
   if (!ctx.headerSent) {
     ctx.status = code;
   }
-  ctx.body = { status, msg, data, time };
+  ctx.body = { status, msg, data };
 }
 
 /**
@@ -51,7 +50,6 @@ async function sendData(ctx, data, status, msg, code = 200) {
  * @param  {Error}    e
  */
 async function handleError(ctx, e) {
-  const time = new Date();
   let stack = e.stack;
   const { status = 'UNKNOWN_ERROR', msg = '未知错误', code = 500 } = e.info || {};
   if (e.was === 'error') {
@@ -63,7 +61,7 @@ async function handleError(ctx, e) {
   if (!ctx.headerSent) {
     ctx.status = code;
   }
-  ctx.body = { status, msg, stack, time };
+  ctx.body = { status, msg, stack };
 }
 
 /**
@@ -75,7 +73,7 @@ async function handleException(ctx, next) {
   try {
     await next();
   } catch (e) {
-    if (e instanceof AE.SoftError) return sendData(ctx, e);
+    if (e instanceof AppError.SoftError) return sendData(ctx, e);
     return handleError(ctx, e);
   }
 }

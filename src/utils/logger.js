@@ -25,7 +25,7 @@ async function logRequest(ctx, next) {
     status: statusNum,
   } = ctx;
 
-  const user = curUser || session.user || {};
+  const user = curUser || session.curUser || {};
 
   const timeText = (isInDev && now()) || '';
   const userIdText = String(user.user_id || '00000').padEnd(5, ' ');

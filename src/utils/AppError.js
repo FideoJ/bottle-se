@@ -69,13 +69,27 @@ class HardError extends AppError {
   }
 }
 
+const map = {
+  OK: 200,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  UNKNOWN_ERROR: 500,
+  INTERNAL_ERROR: 500,
+};
+
+function getCode(status) {
+  return map[status] || 400;
+}
+
 exports = module.exports = {
   AppError,
   SoftError,
   HardError,
-  OK: 'OK',
   BAD_REQUEST: 'BAD_REQUEST',
   UNAUTHORIZED: 'UNAUTHORIZED',
+  FORBIDDEN: 'FORBIDDEN',
   NOT_FOUND: 'NOT_FOUND',
   UNKNOWN_ERROR: 'UNKNOWN_ERROR',
   INTERNAL_ERROR: 'INTERNAL_ERROR',

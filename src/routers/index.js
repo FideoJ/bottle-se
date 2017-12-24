@@ -2,7 +2,7 @@ const path = require('path');
 const Router = require('koa-express-router');
 const bodyParser = require('koa-bodyparser');
 
-const { AE, isInDev, handleException } = require('../utils');
+const { AppError, isInDev, handleException } = require('../utils');
 const RedisServ = require('../services/redis');
 
 // 默认设置
@@ -39,7 +39,7 @@ function getBodyParser() {
      * @param {Context} ctx
      */
     onerror(e, ctx) {
-      throw new AE.SoftError(AE.BAD_REQUEST, '请求解析失败', 422, e);
+      throw new AppError.SoftError(AppError.BAD_REQUEST, '请求解析失败', 422, e);
     },
   };
   return bodyParser(options);
@@ -51,7 +51,7 @@ function getSessionParser(app) {
 
 // 无需登录即可访问的 API
 const whiteList = [
-  '/api/users/login',
+  '/api/sessions',
 ];
 
 /**
@@ -74,7 +74,6 @@ async function initParam(ctx, next) {
   ctx.paramData = {
     body: ctx.request.body,
     query: { ...ctx.request.query },
-    session: ctx.session,
   };
   ctx.session.sessionID = ctx.cookies.get(ctx.sessionOptions.key);
   return next();
@@ -92,11 +91,12 @@ async function blockUnauthorized(ctx, next) {
     }
     return next();
   }
-  throw new AE.SoftError(AE.NOT_AUTHORIZED, '未登录');
+  throw new AppError.SoftError(AppError.UNAUTHORIZED, '未登录');
 }
 
 function init(router) {
   const routers = [
+    'session',
     'user',
   ];
   routers.forEach((rtrName) => {
@@ -106,6 +106,6 @@ function init(router) {
 
   router.use((ctx) => {
     if (ctx.body) return;
-    throw new AE.SoftError(AE.NOT_FOUND, '啊呀, 迷路了');
+    throw new AppError.SoftError(AppError.NOT_FOUND, '啊呀, 迷路了');
   });
 }

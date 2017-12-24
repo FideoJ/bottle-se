@@ -4,6 +4,7 @@ module.exports = {
   root: path.join(__dirname, '..', '..'),
   url: 'http://localhost:3000',
   port: 3003,
+  userSalt: 'enjoy-YOUR-bOOtle',
   db: {
     host: 'localhost',
     user: 'bottle',
@@ -13,7 +14,7 @@ module.exports = {
   },
   redis: {
     host: 'localhost',
-    port: '7001',
+    port: '6379',
     password: 'bottle',
     db: 1,
     namespaces: {

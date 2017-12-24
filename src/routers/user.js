@@ -8,23 +8,23 @@ exports = module.exports = () => exportRtr(router);
 
 // 登录
 router.route('/login')
-  .get(userCtrl.isLogin)
-  .post(
-    userCtrl.login,
-  );
+  .get(userCtrl.isLogin);
+//   .post(
+//     userCtrl.login,
+//   );
 
-// 登出
-router.post('/logout', userCtrl.logout);
+// // 登出
+// router.post('/logout', userCtrl.logout);
 
-// 修改密码
-router.post('/password',
-  userCtrl.updatePassword,
-);
+// // 修改密码
+// router.post('/password',
+//   userCtrl.updatePassword,
+// );
 
-router.route('/profile')
-  // 获取用户信息
-  .get(userCtrl.getProfile)
-  // 修改用户信息
-  .post(
-    userCtrl.updateProfile,
-  );
+// router.route('/profile')
+//   // 获取用户信息
+//   .get(userCtrl.getProfile)
+//   // 修改用户信息
+//   .post(
+//     userCtrl.updateProfile,
+//   );

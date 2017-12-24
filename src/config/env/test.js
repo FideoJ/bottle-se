@@ -13,7 +13,7 @@ module.exports = {
   },
   redis: {
     host: 'localhost',
-    port: '7001',
+    port: '6379',
     password: 'bottle',
     db: 1,
     namespaces: {
