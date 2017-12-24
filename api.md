@@ -1,13 +1,13 @@
 FORMAT: 1A
-HOST: https://localhost:8080
+HOST: https://bottle.resetbypear.com/api
 
 # Bottle
 
 # Group Session
 
-## Session
+## Sessions Collection [/sessions]
 
-### Create a session [POST /sessions]
+### Create a session [POST]
 
 + Request (application/json)
 
@@ -38,8 +38,9 @@ HOST: https://localhost:8080
             "data": {}
         }
 
+## Session [/sessions/self]
 
-### Delete a session [DELETE /sessions/self]
+### Delete a session [DELETE]
 
 + Response 200 (application/json)
 
@@ -59,9 +60,9 @@ HOST: https://localhost:8080
 
 # Group User
 
-## User
+## Users Collection [/users]
 
-### Create a user [POST /users]
+### Create a user [POST]
 
 + Request (application/json)
 
@@ -88,7 +89,9 @@ HOST: https://localhost:8080
             "data": {}
         }
 
-### Retrieve a user [GET /users/self]
+## User [/users/self]
+
+### Retrieve a user [GET]
 
 + Response 200 (application/json)
 
@@ -106,7 +109,7 @@ HOST: https://localhost:8080
             "data": {}
         }
 
-### Update a user [PUT /users/self]
+### Update a user [PUT]
 
 + Request (application/json)
 
