@@ -77,15 +77,20 @@ HOST: https://bottle.resetbypear.com/api
 
         {
             "status": "OK",
-            "msg": "注册成功",
-            "data": {}
+            "msg": "用户user6注册成功",
+            "data": {
+                "user_id": 7,
+                "username": "user6",
+                "nickname": "nickname",
+                "gender": "male"
+            }
         }
 
 + Response 409 (application/json)
 
         {
             "status": "CONFLICT_USERNAME",
-            "msg": "用户名已存在",
+            "msg": "用户名user6已存在",
             "data": {}
         }
 
@@ -98,7 +103,13 @@ HOST: https://bottle.resetbypear.com/api
         {
             "status": "OK",
             "msg": "获取用户资料成功",
-            "data": {}
+            "data": {
+                "user_id": 1,
+                "username": "user",
+                "nickname": "吕剪刀2",
+                "gender": "male",
+                "created_at": "2017-12-24T07:02:23.000Z"
+            }
         }
 
 + Response 401 (application/json)
@@ -124,7 +135,12 @@ HOST: https://bottle.resetbypear.com/api
         {
             "status": "OK",
             "msg": "更新用户资料成功",
-            "data": {}
+            "data": {
+                "user_id": 1,
+                "username": "user",
+                "nickname": "nickname",
+                "gender": "male"
+            }
         }
 
 + Response 401 (application/json)
@@ -182,7 +198,7 @@ HOST: https://bottle.resetbypear.com/api
 
         {
             "status": "OK",
-            "msg": "查询附近漂流瓶成功",
+            "msg": "查询附近的漂流瓶成功",
             "data": {
                 "center": {
                     "latitude": 23.059375,

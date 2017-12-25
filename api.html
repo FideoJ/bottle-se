@@ -30,16 +30,27 @@
   "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
-  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"注册成功"</span></span>,
-  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}
+  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"用户user6注册成功"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">user_id</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"user6"</span></span>,
+    "<span class="hljs-attribute">nickname</span>": <span class="hljs-value"><span class="hljs-string">"nickname"</span></span>,
+    "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span>
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>409</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"CONFLICT_USERNAME"</span></span>,
-  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"用户名已存在"</span></span>,
+  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"用户名user6已存在"</span></span>,
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="user-user" class="resource"><h3 class="resource-heading">User <a href="#user-user" class="permalink">&nbsp;&para;</a></h3><div id="user-user-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve a user</div><a href="#user-user-get" class="method get">GET</a><code class="uri">/users/self</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://bottle.resetbypear.com/api</span>/users/self</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"获取用户资料成功"</span></span>,
-  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">user_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
+    "<span class="hljs-attribute">nickname</span>": <span class="hljs-value"><span class="hljs-string">"吕剪刀2"</span></span>,
+    "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-24T07:02:23.000Z"</span>
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"UNAUTHORIZED"</span></span>,
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"未登录"</span></span>,
@@ -51,7 +62,12 @@
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"更新用户资料成功"</span></span>,
-  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">user_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
+    "<span class="hljs-attribute">nickname</span>": <span class="hljs-value"><span class="hljs-string">"nickname"</span></span>,
+    "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span>
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"UNAUTHORIZED"</span></span>,
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"未登录"</span></span>,
@@ -78,7 +94,7 @@
 </dd><dt>longitude_span</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>0.076545</span></span><p>Longitude Span</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
     <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
-    <span class="hljs-string">"msg"</span>: <span class="hljs-string">"查询附近漂流瓶成功"</span>,
+    <span class="hljs-string">"msg"</span>: <span class="hljs-string">"查询附近的漂流瓶成功"</span>,
     <span class="hljs-string">"data"</span>: {
         <span class="hljs-string">"center"</span>: {
             <span class="hljs-string">"latitude"</span>: <span class="hljs-number">23.059375</span>,
