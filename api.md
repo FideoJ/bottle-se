@@ -161,6 +161,7 @@ HOST: https://bottle.resetbypear.com/api
 
         {
             "content": "A wonderful bottle.",
+            "style": 0,
             "location": {
                 "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路",
                 "latitude": 23.059375,
@@ -173,7 +174,17 @@ HOST: https://bottle.resetbypear.com/api
         {
             "status": "OK",
             "msg": "创建漂流瓶成功",
-            "data": {}
+            "data": {
+                "bottle_id": 1,
+                "content": "A wonderful bottle.",
+                "style": 0,
+                "location": {
+                    "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路",
+                    "latitude": 23.059375,
+                    "longitude": 113.399920
+                },
+                "created_at": "2017-12-25T07:02:23.000Z",
+            }
         }
 
 + Response 401 (application/json)
@@ -211,6 +222,7 @@ HOST: https://bottle.resetbypear.com/api
                 "bottles": [
                     {
                         "bottle_id": 1,
+                        "style": 0,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路",
                             "latitude": 23.059375,
@@ -218,6 +230,7 @@ HOST: https://bottle.resetbypear.com/api
                         }
                     }, {
                         "bottle_id": 2,
+                        "style": 1,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路111号",
                             "latitude": 23.059315,
@@ -225,6 +238,7 @@ HOST: https://bottle.resetbypear.com/api
                         }
                     }, {
                         "bottle_id": 3,
+                        "style": 2,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城广外东路广东外语外贸大学",
                             "latitude": 23.059375,
@@ -255,6 +269,7 @@ HOST: https://bottle.resetbypear.com/api
                     {
                         "bottle_id": 1,
                         "content": "This is a bottle.",
+                        "style": 0,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路",
                             "latitude": 23.059375,
@@ -265,6 +280,7 @@ HOST: https://bottle.resetbypear.com/api
                     }, {
                         "bottle_id": 2,
                         "content": "This is a nice bottle.",
+                        "style": 1,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路111号",
                             "latitude": 23.059315,
@@ -275,6 +291,7 @@ HOST: https://bottle.resetbypear.com/api
                     }, {
                         "bottle_id": 3,
                         "content": "This is a funny bottle.",
+                        "style": 2,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城广外东路广东外语外贸大学",
                             "latitude": 23.059375,
@@ -307,6 +324,7 @@ HOST: https://bottle.resetbypear.com/api
                     {
                         "bottle_id": 1,
                         "content": "This is a bottle.",
+                        "style": 0,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路",
                             "latitude": 23.059375,
@@ -323,6 +341,7 @@ HOST: https://bottle.resetbypear.com/api
                     }, {
                         "bottle_id": 2,
                         "content": "This is a nice bottle.",
+                        "style": 1,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城中环东路111号",
                             "latitude": 23.059315,
@@ -339,6 +358,7 @@ HOST: https://bottle.resetbypear.com/api
                     }, {
                         "bottle_id": 3,
                         "content": "This is a funny bottle.",
+                        "style": 2,
                         "location": {
                             "formatted_address": "广东省广州市番禺区小谷围街道大学城广外东路广东外语外贸大学",
                             "latitude": 23.059375,
@@ -381,6 +401,7 @@ HOST: https://bottle.resetbypear.com/api
             "data": {
                 "bottle_id": 3,
                 "content": "This is a bottle.",
+                "style": 0,
                 "owner": {
                     "user_id": 1,
                     "username": "user",
