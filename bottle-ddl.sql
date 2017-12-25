@@ -27,6 +27,7 @@ CREATE TABLE `bottle` (
   `owner_id` int(11) NOT NULL,
   `location` json NOT NULL,
   `content` longtext NOT NULL,
+  `style` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bottle_id`),
   KEY `owner_Id` (`owner_id`),
@@ -82,4 +83,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-23 19:14:57
+-- Dump completed on 2017-12-25 16:48:32
