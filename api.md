@@ -183,7 +183,6 @@ HOST: https://bottle.resetbypear.com/api
                     "latitude": 23.059375,
                     "longitude": 113.399920
                 },
-                "created_at": "2017-12-25T07:02:23.000Z",
             }
         }
 
