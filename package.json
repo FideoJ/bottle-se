@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon --inspect=5858 ./src/index.js --exec node",
-    "start": "pm2 startOrRestart deploy/prod.json"
+    "start": "pm2 startOrRestart deploy/prod.json",
+    "lint": "eslint --ignore-pattern=*.json src/*"
   },
   "repository": {
     "type": "git",

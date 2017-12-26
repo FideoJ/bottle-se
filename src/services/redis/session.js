@@ -2,6 +2,7 @@ const session = require('koa-session');
 const RedisStore = require('./koa-redis-store');
 const config = require('../../config');
 const ClientManager = require('./ClientManager');
+
 const manager = new ClientManager();
 
 const { namespaces: { session: namespace } } = config.redis;

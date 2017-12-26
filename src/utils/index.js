@@ -55,7 +55,7 @@ async function sendData(ctx, data, status, msg, code = 200) {
  * @param  {Error}    e
  */
 async function handleError(ctx, e) {
-  let stack = e.stack;
+  let { stack } = e;
   const { status = 'UNKNOWN_ERROR', msg = '未知错误', code = 500 } = e.info || {};
   if (e.was === 'error') {
     ctx.paramData.extraMsg = inspect(e);

@@ -4,6 +4,7 @@ const { handleError, handleException } = require('./utils');
 const { logRequest } = require('./utils/logger');
 const { port } = require('./config');
 const { logger } = require('./utils/logger');
+
 const app = new Koa();
 
 app.use(logRequest);

@@ -11,7 +11,8 @@ router.get('/nearby', bottleCtrl.retrieveNearby);
 router.get('/created', bottleCtrl.retrieveSelfCreated);
 router.get('/opened', bottleCtrl.retrieveSelfOpened);
 
-router.param('bottle_id',
+router.param(
+  'bottle_id',
   bottleCtrl.parseOneBottle,
 );
 

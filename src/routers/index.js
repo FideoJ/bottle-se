@@ -38,7 +38,7 @@ function getBodyParser() {
      * @param {Error} e
      * @param {Context} ctx
      */
-    onerror(e, ctx) {
+    onerror(e) {
       throw new AppError.SoftError(AppError.BAD_REQUEST, '请求解析失败', 422, e);
     },
   };
