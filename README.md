@@ -1,6 +1,9 @@
 ## Description
 《基于地理位置的漂流瓶》服务端
 [安卓端地址](https://github.com/Bowenwu1/bottle-ae)
+## Docs
+- [API文档](https://bottle.resetbypear.com/)
+- [数据库设计](https://github.com/FideoJ/bottle-se/blob/master/database/bottle-ddl.sql)
 ## Prerequisites
 - mysql
 - redis
