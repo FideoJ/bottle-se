@@ -1,18 +1,19 @@
-const development = require('./env/development');
-const test = require('./env/test');
-const production = require('./env/production');
-
 const { assign } = Object;
-const map = {
-  development,
-  test,
-  production,
-};
 
 function getConfig() {
   const { NODE_ENV = 'development' } = process.env;
   assign(process.env, { NODE_ENV });
-  const config = map[NODE_ENV] || development;
+  let config = null;
+  switch (NODE_ENV) {
+    case 'development':
+      config = require('./env/development');
+      break;
+    case 'production':
+      config = require('./env/production');
+      break;
+    default:
+      config = require('./env/development');
+  };
   return config;
 }
 
