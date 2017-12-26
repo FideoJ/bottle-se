@@ -1,6 +1,7 @@
 const { inspect } = require('util');
-const _ = require('lodash');
+const lodash = require('lodash');
 const AppError = require('./AppError');
+
 const isInDev = process.env.NODE_ENV === 'development';
 const isInProd = process.env.NODE_ENV === 'production';
 const { assign } = Object;
@@ -11,10 +12,14 @@ exports = module.exports = {
   handleException,
   AppError,
   exportRtr,
-  pick: (obj, ...props) => _.pick(obj, props),
+  pick: (obj, ...props) => lodash.pick(obj, props),
   isInDev,
   isInProd,
   assign,
+  strToNum,
+  jsonParseProps,
+  deleteProps,
+  isPositiveInt: '([1-9][0-9]{0,})',
 };
 
 /**
@@ -84,4 +89,24 @@ async function handleException(ctx, next) {
  */
 function exportRtr(router) {
   return router.routes();
+}
+
+function strToNum(...strs) {
+  const ret = [];
+  strs.forEach(str => ret.push(Number(str)));
+  return ret;
+}
+
+function jsonParseProps(arr, ...props) {
+  arr.forEach((ele) => {
+    props.forEach((prop) => {
+      ele[prop] = JSON.parse(ele[prop]);
+    });
+  });
+}
+
+function deleteProps(obj, ...props) {
+  props.forEach((prop) => {
+    obj[prop] = undefined;
+  });
 }

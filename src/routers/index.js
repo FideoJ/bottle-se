@@ -99,6 +99,7 @@ function init(router) {
   const routers = [
     'session',
     'user',
+    'bottle',
   ];
   routers.forEach((rtrName) => {
     const oneRtr = require(path.join(__dirname, rtrName));

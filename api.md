@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://bottle.resetbypear.com/api
+HOST: http://localhost:3003/api
 
 # Bottle
 
@@ -413,7 +413,6 @@ HOST: https://bottle.resetbypear.com/api
                     "longitude": 116.000967
                 },
                 "created_at": "2017-12-27T07:02:23.000Z",
-                "open_at": "2017-12-28T07:02:23.000Z"
             }
         }
 
