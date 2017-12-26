@@ -1,4 +1,4 @@
-const { sendData, AppError, strToNum } = require('../utils');
+const { sendData, AppError, strsToNums } = require('../utils');
 const Bottle = require('../models/bottle');
 
 exports.create = async (ctx) => {
@@ -12,7 +12,7 @@ exports.create = async (ctx) => {
 exports.retrieveNearby = async (ctx) => {
   let { latitude, longitude, latitude_span, longitude_span } = ctx.paramData.query;
   [latitude, longitude, latitude_span, longitude_span]
-    = strToNum(latitude, longitude, latitude_span, longitude_span);
+    = strsToNums(latitude, longitude, latitude_span, longitude_span);
   const bottles = await Bottle.retrieveNearby(latitude, longitude, latitude_span, longitude_span);
   const data = {
     center: { latitude, longitude },

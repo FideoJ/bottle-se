@@ -16,9 +16,9 @@ exports = module.exports = {
   isInDev,
   isInProd,
   assign,
-  strToNum,
+  strsToNums,
   jsonParseProps,
-  deleteProps,
+  undefineProps,
   isPositiveInt: '([1-9][0-9]{0,})',
 };
 
@@ -70,7 +70,7 @@ async function handleError(ctx, e) {
 }
 
 /**
- * 处理服务器或用户异常
+ * 处理软异常和硬异常
  * @param  {Context}             ctx
  * @param  {{(): Promise<any>}}  next
  */
@@ -91,12 +91,21 @@ function exportRtr(router) {
   return router.routes();
 }
 
-function strToNum(...strs) {
+/**
+ * 将传入的字符串依次转换为Number类型
+ * @param   {...string}   strs
+ */
+function strsToNums(...strs) {
   const ret = [];
   strs.forEach(str => ret.push(Number(str)));
   return ret;
 }
 
+/**
+ * 对传入的数组里的每个对象JSON.parse某些属性
+ * @param   {Object[]}   arr
+ * @param   {...string}  props
+ */
 function jsonParseProps(arr, ...props) {
   arr.forEach((ele) => {
     props.forEach((prop) => {
@@ -105,7 +114,13 @@ function jsonParseProps(arr, ...props) {
   });
 }
 
-function deleteProps(obj, ...props) {
+/**
+ * 将obj的某些属性设置为undefined，相比直接删除可能会提高垃圾回收的效率
+ * @param   {Object}     obj
+ * @param   {...string}  props
+ */
+function undefineProps(obj, ...props) {
+  if (!obj) return;
   props.forEach((prop) => {
     obj[prop] = undefined;
   });

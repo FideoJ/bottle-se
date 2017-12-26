@@ -1,5 +1,5 @@
 const { queryDb } = require('../services/db');
-const { jsonParseProps, pick, deleteProps } = require('../utils');
+const { jsonParseProps, pick, undefineProps } = require('../utils');
 
 exports.create = async (content, style, location, owner_id) => {
   location = JSON.stringify(location);
@@ -25,7 +25,7 @@ exports.retrieveOne = async (bottle_id) => {
   jsonParseProps(bottles, 'location');
   bottles.forEach((bottle) => {
     bottle.owner = pick(bottle, 'user_id', 'username', 'nickname', 'gender');
-    deleteProps(bottle, 'user_id', 'username', 'nickname', 'gender');
+    undefineProps(bottle, 'user_id', 'username', 'nickname', 'gender');
   });
   return bottles;
 };
@@ -71,7 +71,7 @@ exports.retrieveSelfOpened = async (user_id) => {
   jsonParseProps(bottles, 'location');
   bottles.forEach((bottle) => {
     bottle.owner = pick(bottle, 'user_id', 'username', 'nickname', 'gender');
-    deleteProps(bottle, 'user_id', 'username', 'nickname', 'gender');
+    undefineProps(bottle, 'user_id', 'username', 'nickname', 'gender');
   });
   return bottles;
 };
