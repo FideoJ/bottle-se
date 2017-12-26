@@ -14,7 +14,7 @@ const options = {
   secure: false,
   secret: config.sessionSecret,
   path: '/',
-  maxAge: 3 * 60 * 60 * 1000,  // 3 小时,
+  maxAge: 365 * 24 * 60 * 60 * 1000,  // 365天
   rolling: true,
   store: new RedisStore({ client, namespace }),
 };
