@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://localhost:3003/api
+HOST: https//bottle.resetbypear.com/api
 
 # Bottle
 
