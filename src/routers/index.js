@@ -2,7 +2,7 @@ const path = require('path');
 const Router = require('koa-express-router');
 const bodyParser = require('koa-bodyparser');
 
-const { AppError, isInDev, handleException } = require('../utils');
+const { AppError, handleException } = require('../utils');
 const RedisServ = require('../services/redis');
 
 // 默认设置
@@ -85,11 +85,7 @@ async function initParam(ctx, next) {
  * @param {{(): Promise<any>}} next
  */
 async function blockUnauthorized(ctx, next) {
-  const hasLoggedin = ctx.session.curUser;
-  if (ctx.isInWhiteList || hasLoggedin) {
-    if (hasLoggedin) {
-      ctx.paramData.curUser = ctx.paramData.user = ctx.session.curUser;
-    }
+  if (ctx.isInWhiteList || ctx.session.curUser) {
     return next();
   }
   throw new AppError.SoftError(AppError.UNAUTHORIZED, '未登录');

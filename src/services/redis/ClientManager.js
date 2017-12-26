@@ -24,7 +24,6 @@ class ClientManager {
     const client = redis.createClient(config);
     client.on('error', (e) => {
       logger.error('[redis climgr] Redis 查询出错', e.stack);
-      if (isInDev && e.name === 'AbortError') return;
     });
     return client;
   }
