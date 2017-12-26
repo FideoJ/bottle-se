@@ -13,7 +13,7 @@ function getConfig() {
       break;
     default:
       config = require('./env/development');
-  };
+  }
   return config;
 }
 
