@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https//bottle.resetbypear.com/api
+HOST: https://bottle.resetbypear.com/api
 
 # Bottle
 
