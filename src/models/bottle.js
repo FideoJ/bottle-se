@@ -45,11 +45,12 @@ exports.retrieveNearby = async (latitude, longitude, latitude_span, longitude_sp
 
 exports.retrieveSelfCreated = async (user_id) => {
   const sql = `
-    SELECT bottle_id, content, style, location, created_at, COUNT(*) AS openers_count
-    FROM bottle_open
-    NATURAL JOIN bottle
-    WHERE bottle.owner_id = ?
-    GROUP BY bottle_id;
+    SELECT bottle.bottle_id, content, style, location, created_at, COUNT(open_at) AS openers_count
+    FROM bottle
+    LEFT JOIN bottle_open
+    ON bottle.bottle_id = bottle_open.bottle_id
+    WHERE owner_id = ?
+    GROUP BY bottle.bottle_id;
   `;
   const values = [user_id];
   const bottles = await queryDb(sql, values);
